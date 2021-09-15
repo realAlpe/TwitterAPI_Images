@@ -1,0 +1,251 @@
+{
+  "created_at": "Wed Sep 15 23:06:22 +0000 2021",
+  "id": 1438278046423867392,
+  "id_str": "1438278046423867392",
+  "text": "Fan submission from @milkyminty_ thank you for choosing mine and @LilWeirdoNeko's work for voice acting practice &lt;3 https://t.co/9ldVzPJHQ7",
+  "truncated": false,
+  "entities": {
+    "hashtags": [],
+    "symbols": [],
+    "user_mentions": [
+      {
+        "screen_name": "milkyminty_",
+        "name": "\ud83d\udc04",
+        "id": 1103511559119069184,
+        "id_str": "1103511559119069184",
+        "indices": [
+          20,
+          32
+        ]
+      },
+      {
+        "screen_name": "LilWeirdoNeko",
+        "name": "\ud83c\udf38Kukseleg\ud83c\udf38 \u65e5\u672c\u8a9e\u304c\u82e6\u624b\u3067\u3059",
+        "id": 1153679843269206018,
+        "id_str": "1153679843269206018",
+        "indices": [
+          65,
+          79
+        ]
+      }
+    ],
+    "urls": [],
+    "media": [
+      {
+        "id": 1438277490401849347,
+        "id_str": "1438277490401849347",
+        "indices": [
+          119,
+          142
+        ],
+        "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/1438277490401849347/pu/img/E0jDgMoJ62gHj-q6.jpg",
+        "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1438277490401849347/pu/img/E0jDgMoJ62gHj-q6.jpg",
+        "url": "https://t.co/9ldVzPJHQ7",
+        "display_url": "pic.twitter.com/9ldVzPJHQ7",
+        "expanded_url": "https://twitter.com/foxinshadow_art/status/1438278046423867392/video/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 675,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 383,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 1280,
+            "h": 720,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "id": 1438277490401849347,
+        "id_str": "1438277490401849347",
+        "indices": [
+          119,
+          142
+        ],
+        "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/1438277490401849347/pu/img/E0jDgMoJ62gHj-q6.jpg",
+        "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1438277490401849347/pu/img/E0jDgMoJ62gHj-q6.jpg",
+        "url": "https://t.co/9ldVzPJHQ7",
+        "display_url": "pic.twitter.com/9ldVzPJHQ7",
+        "expanded_url": "https://twitter.com/foxinshadow_art/status/1438278046423867392/video/1",
+        "type": "video",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 675,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 383,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 1280,
+            "h": 720,
+            "resize": "fit"
+          }
+        },
+        "video_info": {
+          "aspect_ratio": [
+            16,
+            9
+          ],
+          "duration_millis": 38125,
+          "variants": [
+            {
+              "bitrate": 2176000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/ext_tw_video/1438277490401849347/pu/vid/1280x720/NO3ramuGyuOfFrVE.mp4?tag=12"
+            },
+            {
+              "content_type": "application/x-mpegURL",
+              "url": "https://video.twimg.com/ext_tw_video/1438277490401849347/pu/pl/s1Qnbr8d0aNwRuzQ.m3u8?tag=12&container=fmp4"
+            },
+            {
+              "bitrate": 256000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/ext_tw_video/1438277490401849347/pu/vid/480x270/41NlzkS66j6Z89n-.mp4?tag=12"
+            },
+            {
+              "bitrate": 832000,
+              "content_type": "video/mp4",
+              "url": "https://video.twimg.com/ext_tw_video/1438277490401849347/pu/vid/640x360/7U77qqGNVVQ-HADQ.mp4?tag=12"
+            }
+          ]
+        },
+        "additional_media_info": {
+          "monetizable": false
+        }
+      }
+    ]
+  },
+  "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 929980822333116418,
+    "id_str": "929980822333116418",
+    "name": "\ud83d\udd1eFoxInShadow\ud83e\udd8a\u307e\u3063\u305f\u304f\u3001\u99c6\u9010\u8266\u306f\u6700\u9ad8\u3060\u305c!!\ud83e\udd8a",
+    "screen_name": "foxinshadow_art",
+    "location": "",
+    "description": "NSFW\ud83d\udd1efurry art,FOR WEEB ART\u27a1\ufe0f@foxinshadow https://t.co/YLiZ9DI3LR https://t.co/NIuKk4QVBu https://t.co/rbl2q3OYjy ALL ANIMATIONS by my gf @lilweirdoneko",
+    "url": "https://t.co/qZgZHxgueg",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/qZgZHxgueg",
+            "expanded_url": "https://compiled.social/FoxInShadow",
+            "display_url": "compiled.social/FoxInShadow",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+          {
+            "url": "https://t.co/YLiZ9DI3LR",
+            "expanded_url": "http://pixiv.me/foxinshadow",
+            "display_url": "pixiv.me/foxinshadow",
+            "indices": [
+              42,
+              65
+            ]
+          },
+          {
+            "url": "https://t.co/NIuKk4QVBu",
+            "expanded_url": "http://furaffinity.net/user/zero-sum/",
+            "display_url": "furaffinity.net/user/zero-sum/",
+            "indices": [
+              66,
+              89
+            ]
+          },
+          {
+            "url": "https://t.co/rbl2q3OYjy",
+            "expanded_url": "http://foxinshadow.newgrounds.com",
+            "display_url": "foxinshadow.newgrounds.com",
+            "indices": [
+              90,
+              113
+            ]
+          }
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 17572,
+    "friends_count": 6684,
+    "listed_count": 78,
+    "created_at": "Mon Nov 13 07:54:41 +0000 2017",
+    "favourites_count": 7162,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": false,
+    "verified": false,
+    "statuses_count": 1741,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "000000",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1213896385361326080/92_iv6_q_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1213896385361326080/92_iv6_q_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/929980822333116418/1544967118",
+    "profile_link_color": "1B95E0",
+    "profile_sidebar_border_color": "000000",
+    "profile_sidebar_fill_color": "000000",
+    "profile_text_color": "000000",
+    "profile_use_background_image": false,
+    "has_extended_profile": true,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": false,
+    "follow_request_sent": false,
+    "notifications": false,
+    "translator_type": "none",
+    "withheld_in_countries": []
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 23,
+  "favorite_count": 77,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": true,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}

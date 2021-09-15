@@ -54,7 +54,7 @@ def download_home_timeline() -> None:
         open_directory()
 
 
-def schedule_download_home_timeline():
+def schedule_download_home_timeline() -> None:
     download_home_timeline()
     schedule.every(30).minutes.do(download_home_timeline)
     while True:
@@ -62,7 +62,13 @@ def schedule_download_home_timeline():
         sleep(60)
 
 
-def download_tweet_by_id(id: int):
+def download_tweet_by_id(id: int) -> None:
     api = get_api()
     json_data = api.get_status(id)._json
     download_tweet(json_data)
+
+
+def debug(id: int) -> None:
+    api = get_api()
+    json_data = api.get_status(id)._json
+    set_json("debug", json_data)

@@ -22,6 +22,8 @@ def get_tweet_model(tweet: dict) -> TweetModel:
         return None
 
     for media in all_media:
+        if media.get("type") != get_json_attribute("options", "media_type"):
+            continue
         media_url: str = media.get("media_url")
         media_url_https: str = media.get("media_url_https")
 
@@ -30,6 +32,10 @@ def get_tweet_model(tweet: dict) -> TweetModel:
             media_urls.append(media_url_https)
         elif media_url is not None:
             media_urls.append(media_url)
+
+    # If no get_json_attribute("options", "media_type") exist
+    if len(media_urls) == 0:
+        return None
 
     # Get other data
     tweet_id = tweet.get("id")
@@ -60,6 +66,10 @@ def download_tweet(tweet: Union[TweetModel, dict]):
 
     if type(tweet) == dict:
         tweet_model: TweetModel = get_tweet_model(tweet)
+        if get_tweet_model is None:
+            media_type = get_json_attribute("options", "media_type")
+            print(f'No media of type "{media_type}" was found.')
+            return
     elif type(tweet) == TweetModel:
         tweet_model: TweetModel = tweet
 
@@ -83,6 +93,10 @@ def download_all_tweets(tweets: list[dict]) -> None:
     create_directory(directory_path)
 
     tweet_models = get_all_tweet_model(tweets)
+    if tweet_models is None:
+        media_type = get_json_attribute("options", "media_type")
+        print(f'No media of type "{media_type}" was found.')
+        return
 
     for tweet_model in tweet_models:
         download_tweet(tweet_model)
