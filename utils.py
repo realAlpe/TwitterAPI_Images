@@ -20,6 +20,19 @@ def get_json_attribute(filename: str, key: str):
     return data.get(key)
 
 
+def get_since_id() -> int:
+    # Get the last since_id in order to avoid duplication
+    create_file("since_id.json")
+    since_id = get_json_attribute("since_id", "since_id")
+    if since_id is None:
+        since_id = int(input("Please enter the ID of a tweet that is not too old.\n"))
+    return since_id
+
+
+def set_since_id(id: int) -> None:
+    set_json("since_id", {"since_id": id})
+
+
 def get_options_attribute(key: str):
     return get_json_attribute("options", key)
 

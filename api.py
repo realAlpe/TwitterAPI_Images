@@ -4,11 +4,11 @@ from tweepy import OAuthHandler, API, Status
 from logging import getLogger
 from os import environ
 from utils import (
-    create_file,
-    get_json_attribute,
     get_options_attribute,
+    get_since_id,
     open_directory,
     set_json,
+    set_since_id,
 )
 
 import schedule
@@ -29,18 +29,8 @@ def get_api() -> API:
     return API(auth)
 
 
-def get_since_id() -> int:
-    # Get the last since_id in order to avoid duplication
-    create_file("since_id.json")
-    since_id = get_json_attribute("since_id", "since_id")
-    if since_id is None:
-        since_id = int(input("Please enter the ID of a tweet that is not too old.\n"))
-    return since_id
-
-
 def download_home_timeline() -> None:
-    LOGGER.info("Started downloading home timeline...")
-    print("Started downloading home timeline...")
+    LOGGER.info("Started downloading home timeline.")
 
     api = get_api()
 
@@ -53,21 +43,22 @@ def download_home_timeline() -> None:
         since_id=since_id, count=COUNT, exclude_replies="true"
     )
 
+    # Return early if no tweets exist
+    if len(status_tweets) == 0:
+        LOGGER.info("No new tweets were found.")
+        return
+
     # Sort out and download all tweets with media
     tweets: list[dict] = list(map(lambda x: x._json, status_tweets))
     download_all_tweets(tweets)
 
     # Update the since_id in order to avoid duplication
-    try:
-        set_json("since_id", {"since_id": tweets[0].get("id")})
-    except IndexError:
-        pass
+    set_since_id(tweets[0].get("id"))
 
     if get_options_attribute("open_directory_on_closing"):
         open_directory()
 
-    LOGGER.info("Finished downloading home timeline...")
-    print("Finished downloading home timeline...")
+    LOGGER.info("Finished downloading home timeline.")
 
 
 def schedule_download_home_timeline() -> None:
