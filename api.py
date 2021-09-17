@@ -39,6 +39,9 @@ def get_since_id() -> int:
 
 
 def download_home_timeline() -> None:
+    LOGGER.info("Started downloading home timeline...")
+    print("Started downloading home timeline...")
+
     api = get_api()
 
     # Define constants
