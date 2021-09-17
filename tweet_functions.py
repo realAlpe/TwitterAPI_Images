@@ -1,9 +1,12 @@
 from typing import Union
 from utils import create_directory, get_options_attribute
 from models import TweetModel
+from logging import getLogger
 
 import requests
 import os
+
+LOGGER = getLogger()
 
 
 def get_tweet_model(tweet: dict) -> TweetModel:
@@ -21,8 +24,9 @@ def get_tweet_model(tweet: dict) -> TweetModel:
         # The tweet does not contain any media
         return None
 
+    media_type = get_options_attribute("media_type")
     for media in all_media:
-        if media.get("type") != get_options_attribute("media_type"):
+        if media.get("type") != media_type:
             continue
         media_url: str = media.get("media_url")
         media_url_https: str = media.get("media_url_https")
@@ -33,7 +37,7 @@ def get_tweet_model(tweet: dict) -> TweetModel:
         elif media_url is not None:
             media_urls.append(media_url)
 
-    # If no get_options_attribute("media_type") exist
+    # If no media_type exist
     if len(media_urls) == 0:
         return None
 
@@ -64,15 +68,14 @@ def download_tweet(tweet: Union[TweetModel, dict]):
     directory_path = get_options_attribute("folder_name")
     create_directory(directory_path)
 
-    if type(tweet) == dict:
+    if type(tweet) is dict:
         tweet_model: TweetModel = get_tweet_model(tweet)
-        if get_tweet_model is None:
-            media_type = get_options_attribute("media_type")
-            print(f'No media of type "{media_type}" was found.')
+        if tweet_model is None:
             return
-    elif type(tweet) == TweetModel:
+    elif type(tweet) is TweetModel:
         tweet_model: TweetModel = tweet
 
+    LOGGER.info(f"Attempt download of tweet with id: {tweet_model.tweet_id}")
     for media_url in tweet_model.media_urls:
         image_format = get_options_attribute("image_format")
         image_size = get_options_attribute("image_size")
@@ -86,17 +89,12 @@ def download_tweet(tweet: Union[TweetModel, dict]):
 
         with open(file_path, "wb") as f:
             f.write(image.content)
+    LOGGER.info(f"Successful download of tweet with id: {tweet_model.tweet_id}")
 
 
 def download_all_tweets(tweets: list[dict]) -> None:
     directory_path = get_options_attribute("folder_name")
     create_directory(directory_path)
 
-    tweet_models = get_all_tweet_model(tweets)
-    if tweet_models is None:
-        media_type = get_options_attribute("media_type")
-        print(f'No media of type "{media_type}" was found.')
-        return
-
-    for tweet_model in tweet_models:
-        download_tweet(tweet_model)
+    for tweet in tweets:
+        download_tweet(tweet)

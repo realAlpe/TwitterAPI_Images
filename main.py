@@ -1,15 +1,23 @@
 from api import *
+import logging
+
+
+def configurations():
+    # Setting up logger
+    logging.basicConfig(
+        filename="log_data.log",
+        level=logging.DEBUG,
+        format="%(asctime)s:%(levelname)s:%(message)s",
+    )
 
 
 if __name__ == "__main__":
+    configurations()
+
     schedule_download_home_timeline()
     # download_tweet_by_id(1438278046423867392)
 
 # Future ideas:
-# dont use random file names but use the data given from tweets
-# add logging
-
-# create folders of users and add respective images with different file names there
 
 # what about just creating another script that sorts the image files based on their prefix (username) in the file
 # and the API thingy just puts all images into one folders where you can check all the images

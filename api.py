@@ -2,6 +2,7 @@ from time import sleep
 from tweet_functions import download_all_tweets, download_tweet
 from auth import API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 from tweepy import OAuthHandler, API, Status
+from logging import getLogger
 from utils import (
     create_file,
     get_json_attribute,
@@ -11,6 +12,9 @@ from utils import (
 )
 
 import schedule
+
+
+LOGGER = getLogger()
 
 
 def get_api() -> API:
@@ -54,7 +58,7 @@ def download_home_timeline() -> None:
     if get_options_attribute("open_directory_on_closing"):
         open_directory()
 
-    print("Finished downloading home timeline...")
+    LOGGER.info("Finished downloading home timeline...")
 
 
 def schedule_download_home_timeline() -> None:
