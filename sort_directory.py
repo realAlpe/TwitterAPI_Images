@@ -9,6 +9,7 @@ from utils import create_directory
 def sort_directory(directory: str) -> None:
     pattern = re.compile(r"(\S+) .+\.png")
 
+    # Go through all items in the given directory
     for item in listdir(directory):
         # If it is a file
         if isfile(join(directory, item)):
@@ -30,9 +31,11 @@ def main() -> None:
     directories = [f for f in listdir() if "." not in f]
     directories.remove("__pycache__")
 
+    # return if no directory was found
     if len(directories) == 0:
         print(f"No directories found in {getcwd()}")
         return
+    # If only one directory exists, sort it
     elif len(directories) == 1:
         sort_directory(directories[0])
         pass

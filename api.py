@@ -59,6 +59,7 @@ def download_home_timeline() -> None:
         open_directory()
 
     LOGGER.info("Finished downloading home timeline...")
+    print("Finished downloading home timeline...")
 
 
 def schedule_download_home_timeline() -> None:
