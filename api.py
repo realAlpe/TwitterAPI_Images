@@ -1,8 +1,8 @@
 from time import sleep
 from tweet_functions import download_all_tweets, download_tweet
-from auth import API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 from tweepy import OAuthHandler, API, Status
 from logging import getLogger
+from os import environ
 from utils import (
     create_file,
     get_json_attribute,
@@ -19,6 +19,11 @@ LOGGER = getLogger()
 
 def get_api() -> API:
     # Authenticate and get the API
+    API_KEY = environ["TWITTER_API_KEY"]
+    API_KEY_SECRET = environ["TWITTER_API_KEY_SECRET"]
+    ACCESS_TOKEN = environ["TWITTER_ACCESS_TOKEN"]
+    ACCESS_TOKEN_SECRET = environ["TWITTER_ACCESS_TOKEN_SECRET"]
+
     auth = OAuthHandler(API_KEY, API_KEY_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     return API(auth)
