@@ -1,0 +1,5 @@
+API_KEY = r""
+API_KEY_SECRET = r""
+
+ACCESS_TOKEN = r""
+ACCESS_TOKEN_SECRET = r""

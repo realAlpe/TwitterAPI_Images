@@ -1,12 +1,19 @@
 from typing import Union
 from utils import create_directory, get_options_attribute
-from models import TweetModel
+from dataclasses import dataclass
 from logging import getLogger
 
 import requests
 import os
 
 LOGGER = getLogger()
+
+
+@dataclass
+class TweetModel:
+    tweet_id: int
+    media_urls: list[str]
+    user_screen_name: str
 
 
 def get_tweet_model(tweet: dict) -> TweetModel:
@@ -43,16 +50,10 @@ def get_tweet_model(tweet: dict) -> TweetModel:
 
     # Get other data
     tweet_id = tweet.get("id")
-    created_at = tweet.get("created_at")
-
     user: dict = tweet.get("user")
-    user_id = user.get("id")
-    user_name = user.get("name")
     user_screen_name = user.get("screen_name")
 
-    return TweetModel(
-        tweet_id, created_at, media_urls, user_id, user_name, user_screen_name
-    )
+    return TweetModel(tweet_id, media_urls, user_screen_name)
 
 
 def get_all_tweet_model(tweets: list[dict]) -> list[TweetModel]:
@@ -76,17 +77,20 @@ def download_tweet(tweet: Union[TweetModel, dict]):
         tweet_model: TweetModel = tweet
 
     LOGGER.info(f"Attempt download of tweet with id: {tweet_model.tweet_id}")
-    for media_url in tweet_model.media_urls:
+    for i, media_url in enumerate(tweet_model.media_urls):
         image_format = get_options_attribute("image_format")
         image_size = get_options_attribute("image_size")
+
+        # Check whether the file already exists
+        file_name = f"{tweet_model.user_screen_name} - {tweet_model.tweet_id}_{i+1}_{image_size}.{image_format}"
+        file_path = os.path.join(directory_path, file_name)
+        if os.path.exists(file_path):
+            LOGGER.info(f"The media has already been downloaded, URL: {media_url}")
+            continue
+
         modified_media_url = f"{media_url}?format={image_format}&name={image_size}"
 
         image = requests.get(modified_media_url)
-
-        # TODO: Add customizable file names based on TweetModel
-        file_name = f"{tweet_model.user_screen_name} - {tweet_model.tweet_id}_{image_size}.{image_format}"
-        file_path = os.path.join(directory_path, file_name)
-
         with open(file_path, "wb") as f:
             f.write(image.content)
     LOGGER.info(f"Successful download of tweet with id: {tweet_model.tweet_id}")

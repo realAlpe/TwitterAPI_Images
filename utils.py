@@ -1,10 +1,7 @@
 from json import dump, load
 from subprocess import Popen
-from logging import getLogger
 
 import os
-
-LOGGER = getLogger()
 
 
 def get_json(filename: str) -> object:

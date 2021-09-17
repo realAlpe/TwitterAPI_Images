@@ -1,12 +1,5 @@
-TwitterImages/**
-TwitterAPI_Images.zip
+TwitterImages
+__pycache__
+
 deprecated.py
-auth.py
-__pycache__/api.cpython-39.pyc
-__pycache__/auth.cpython-39.pyc
-__pycache__/models.cpython-39.pyc
-__pycache__/test.cpython-39.pyc
-__pycache__/tweet_functions.cpython-39.pyc
-__pycache__/utils.cpython-39.pyc
-.vscode/settings.json
 log_data.log

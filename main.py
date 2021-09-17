@@ -18,6 +18,7 @@ if __name__ == "__main__":
     # download_tweet_by_id(1438278046423867392)
 
 # Future ideas:
+# REMOVE FEATURES OF TWEETMODEL ( DONT REALLY NEED THAT MUCH INFO )
 
 # what about just creating another script that sorts the image files based on their prefix (username) in the file
 # and the API thingy just puts all images into one folders where you can check all the images
