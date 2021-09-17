@@ -5,6 +5,7 @@ from tweepy import OAuthHandler, API, Status
 from utils import (
     create_file,
     get_json_attribute,
+    get_options_attribute,
     open_directory,
     set_json,
 )
@@ -50,16 +51,19 @@ def download_home_timeline() -> None:
     except IndexError:
         pass
 
-    if get_json_attribute("options", "open_directory_on_closing"):
+    if get_options_attribute("open_directory_on_closing"):
         open_directory()
+
+    print("Finished downloading home timeline...")
 
 
 def schedule_download_home_timeline() -> None:
     download_home_timeline()
-    schedule.every(30).minutes.do(download_home_timeline)
+    minutes_count = get_options_attribute("repeat_every_x_minutes")
+    schedule.every(minutes_count).minutes.do(download_home_timeline)
     while True:
         schedule.run_pending()
-        sleep(60)
+        sleep(5)
 
 
 def download_tweet_by_id(id: int) -> None:

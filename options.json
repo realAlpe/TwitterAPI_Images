@@ -3,5 +3,6 @@
     "image_size": "large",
     "open_directory_on_closing": false,
     "folder_name": "TwitterImages",
-    "media_type": "photo"
+    "media_type": "photo",
+    "repeat_every_x_minutes": 30
 }

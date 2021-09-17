@@ -20,6 +20,10 @@ def get_json_attribute(filename: str, key: str):
     return data.get(key)
 
 
+def get_options_attribute(key: str):
+    return get_json_attribute("options", key)
+
+
 def create_file(file_path: str) -> None:
     if not os.path.exists(file_path):
         with open(file_path, "w+") as f:
@@ -32,7 +36,7 @@ def create_directory(directory_path: str) -> None:
 
 
 def open_directory(directory_path) -> None:
-    directory_path = get_json_attribute("options", "folder_name")
+    directory_path = get_options_attribute("folder_name")
     current_directory: str = os.path.dirname(__file__)
     image_directory = os.path.join(current_directory, directory_path)
     Popen(rf'explorer /select,"{image_directory}"')

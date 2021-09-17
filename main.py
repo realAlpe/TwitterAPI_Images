@@ -2,8 +2,8 @@ from api import *
 
 
 if __name__ == "__main__":
-    # download_home_timeline()
-    download_tweet_by_id(1438278046423867392)
+    schedule_download_home_timeline()
+    # download_tweet_by_id(1438278046423867392)
 
 # Future ideas:
 # dont use random file names but use the data given from tweets
